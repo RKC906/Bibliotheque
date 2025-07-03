@@ -20,12 +20,15 @@
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/services/adherant/AuthentificationService.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/adherant/LivreRepository.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/Authentification.java
+/home/itu/java/github/Bibliotheque/src/main/java/biblio/services/admin/AdherantService.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/ReglePret.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/CategorieLivre.java
+/home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/admin/AbonnementRepository.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/adherant/CategorieLivreAssociationRepository.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/services/adherant/LivreService.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/Abonnement.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/controller/adherant/LivreController.java
+/home/itu/java/github/Bibliotheque/src/main/java/biblio/services/admin/AbonnementService.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/TypePret.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/admin/AdminRepository.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/Adherant.java

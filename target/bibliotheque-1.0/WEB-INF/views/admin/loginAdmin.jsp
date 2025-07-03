@@ -1,3 +1,4 @@
+ <%@ page import="java.lang.String" %>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -7,6 +8,7 @@
 </head>
 <body>
     <h2>Connexion Admin</h2>
+   
     <form action="${pageContext.request.contextPath}/admin/login" method="post">
         <label for="email">Email :</label>
         <input type="email" id="email" name="email" required value="admin1@biblio.fr"><br><br>
@@ -14,8 +16,9 @@
         <input type="password" id="motDePasse" name="motDePasse" required value="admin123"><br><br>
         <button type="submit">Se connecter</button>
     </form>
-    <c:if test="${not empty error}">
-        <p style="color:red;">${error}</p>
-    </c:if>
+    <% String error = (String) request.getAttribute("error");
+       if (error != null && !error.isEmpty()) { %>
+        <p style="color:red;"><%= error %></p>
+    <% } %>
 </body>
 </html>

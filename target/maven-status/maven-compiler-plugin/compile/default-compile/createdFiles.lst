@@ -14,7 +14,9 @@ biblio/entities/Auteur.class
 biblio/entities/CategorieLivre.class
 biblio/repository/adherant/CategorieLivreRepository.class
 biblio/entities/Penalite.class
+biblio/services/admin/AdherantService.class
 biblio/repository/adherant/AuteurRepository.class
+biblio/services/admin/AbonnementService.class
 biblio/entities/Reservation.class
 biblio/entities/Pret.class
 biblio/controller/admin/AdminController.class
@@ -29,3 +31,4 @@ biblio/entities/Abonnement.class
 biblio/repository/adherant/CategorieLivreAssociationRepository.class
 biblio/services/admin/AdminService.class
 biblio/entities/Adherant.class
+biblio/repository/admin/AbonnementRepository.class
