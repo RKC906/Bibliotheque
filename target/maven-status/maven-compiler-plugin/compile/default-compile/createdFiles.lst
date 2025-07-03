@@ -5,8 +5,10 @@ biblio/entities/Retour.class
 biblio/services/admin/PenaliteService.class
 biblio/services/adherant/AuthentificationService.class
 biblio/controller/ApplicationController.class
+biblio/repository/adherant/ReservationRepository.class
 biblio/controller/adherant/AdherantController.class
 biblio/entities/Authentification.class
+biblio/services/adherant/ReservationService.class
 biblio/repository/adherant/AdherantRepository.class
 biblio/entities/ExemplaireLivre.class
 biblio/entities/CategorieLivreAssociation.class
@@ -26,10 +28,12 @@ biblio/entities/Profile.class
 biblio/repository/admin/AdminRepository.class
 biblio/entities/Livre.class
 biblio/entities/Admin.class
+biblio/controller/adherant/ReservationController.class
 biblio/repository/adherant/LivreRepository.class
 biblio/repository/adherant/ExemplaireLivreRepository.class
 biblio/entities/Abonnement.class
 biblio/repository/adherant/CategorieLivreAssociationRepository.class
+biblio/controller/admin/ReservationAdminController.class
 biblio/services/admin/AdminService.class
 biblio/entities/Adherant.class
 biblio/repository/admin/AbonnementRepository.class

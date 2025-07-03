@@ -13,6 +13,7 @@
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/controller/adherant/AdherantController.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/Livre.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/Profile.java
+/home/itu/java/github/Bibliotheque/src/main/java/biblio/services/adherant/ReservationService.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/Retour.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/ExemplaireLivre.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/Admin.java
@@ -25,6 +26,7 @@
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/ReglePret.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/CategorieLivre.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/admin/AbonnementRepository.java
+/home/itu/java/github/Bibliotheque/src/main/java/biblio/controller/admin/ReservationAdminController.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/adherant/CategorieLivreAssociationRepository.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/services/adherant/LivreService.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/Abonnement.java
@@ -34,4 +36,6 @@
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/admin/PenaliteRepository.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/admin/AdminRepository.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/Adherant.java
+/home/itu/java/github/Bibliotheque/src/main/java/biblio/controller/adherant/ReservationController.java
+/home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/adherant/ReservationRepository.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/CategorieLivreAssociation.java

@@ -10,7 +10,8 @@ import java.util.Date;
 import biblio.entities.Admin;
 
 @Entity
-public class Pret {
+public class Pret 
+{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_pret;
@@ -25,6 +26,11 @@ public class Pret {
 
     @ManyToOne
     private ExemplaireLivre exemplaireLivre;
+
+    @ManyToOne
+    private TypePret typePret;
+    
+  
 
     public Pret() {
     }
@@ -76,5 +82,13 @@ public class Pret {
 
     public void setExemplaireLivre(ExemplaireLivre exemplaireLivre) {
         this.exemplaireLivre = exemplaireLivre;
+    }
+
+      public TypePret getTypePret() {
+        return typePret;
+    }
+
+    public void setTypePret(TypePret typePret) {
+        this.typePret = typePret;
     }
 }

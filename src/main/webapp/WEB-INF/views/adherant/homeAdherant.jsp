@@ -72,6 +72,7 @@
                 <th>Langue</th>
                 <th>Catégories</th>
                 <th>Nombre d'exemplaires</th>
+                <th>Réserver</th>
             </tr>
         </thead>
         <tbody>
@@ -98,6 +99,12 @@
                 </td>
                 <td>
                     <%= nbEx %>
+                </td>
+                <td>
+                    <form action="${pageContext.request.contextPath}/adherant/reservation/nouveau" method="get" style="margin:0;">
+                        <input type="hidden" name="livreId" value="<%= livre.getId_Livre() %>" />
+                        <button type="submit" <%= nbEx == 0 ? "disabled" : "" %>>Réserver</button>
+                    </form>
                 </td>
             </tr>
         <%      }

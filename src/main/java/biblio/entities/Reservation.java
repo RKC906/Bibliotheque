@@ -13,43 +13,64 @@ public class Reservation {
     private Integer id_Reservation;
     private String date_reservation;
     private String status;
-    
+
+    @ManyToOne
+    private TypePret typePret;
+
     @ManyToOne
     private Status statusEntity;
-    
+
     @ManyToOne
     private ExemplaireLivre exemplaireLivre;
 
-    public Reservation() {}
+    public Reservation() {
+    }
 
     // Getters and Setters
     public Integer getId_Reservation() {
         return id_Reservation;
     }
+
     public void setId_Reservation(Integer id_Reservation) {
         this.id_Reservation = id_Reservation;
     }
+
     public String getDate_reservation() {
         return date_reservation;
     }
+
     public void setDate_reservation(String date_reservation) {
         this.date_reservation = date_reservation;
     }
+
     public String getStatus() {
         return status;
     }
+
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public TypePret getTypePret() {
+        return typePret;
+    }
+
+    public void setTypePret(TypePret typePret) {
+        this.typePret = typePret;
+    }
+
     public Status getStatusEntity() {
         return statusEntity;
     }
+
     public void setStatusEntity(Status statusEntity) {
         this.statusEntity = statusEntity;
     }
+
     public ExemplaireLivre getExemplaireLivre() {
         return exemplaireLivre;
     }
+
     public void setExemplaireLivre(ExemplaireLivre exemplaireLivre) {
         this.exemplaireLivre = exemplaireLivre;
     }
