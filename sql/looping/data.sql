@@ -49,3 +49,7 @@ INSERT INTO CategorieLivreAssociation(livre_id_Livre, categorieLivre_id_Categori
 (3, 2), (3, 1), (3, 7),    -- 1984: Science-Fiction, Roman, Drame
 (4, 3), (4, 1),            -- Roger Ackroyd: Policier, Roman
 (5, 1), (5, 5), (5, 6);    -- Le Petit Prince: Roman, Classique, Jeunesse
+
+INSERT INTO Admin (email, motDePasse) VALUES
+('admin1@biblio.fr', 'admin123'),
+('admin2@biblio.fr', 'motdepasse456');

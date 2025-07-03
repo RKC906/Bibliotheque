@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import java.util.Date;
+import biblio.entities.Admin;
 
 @Entity
 public class Penalite {
@@ -14,35 +15,54 @@ public class Penalite {
     private Integer id_Penalite;
     private Date date_debut;
     private Date date_fin;
-    
+
     @ManyToOne
     private Adherant adherant;
 
-    public Penalite() {}
+    @ManyToOne
+    private Admin admin;
+
+    public Penalite() {
+    }
 
     // Getters and Setters
     public Integer getId_Penalite() {
         return id_Penalite;
     }
+
     public void setId_Penalite(Integer id_Penalite) {
         this.id_Penalite = id_Penalite;
     }
+
     public Date getDate_debut() {
         return date_debut;
     }
+
     public void setDate_debut(Date date_debut) {
         this.date_debut = date_debut;
     }
+
     public Date getDate_fin() {
         return date_fin;
     }
+
     public void setDate_fin(Date date_fin) {
         this.date_fin = date_fin;
     }
+
     public Adherant getAdherant() {
         return adherant;
     }
+
     public void setAdherant(Adherant adherant) {
         this.adherant = adherant;
+    }
+
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
     }
 }

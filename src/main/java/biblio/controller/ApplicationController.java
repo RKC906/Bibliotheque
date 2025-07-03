@@ -12,6 +12,6 @@ public class ApplicationController
 
     @GetMapping("/")
     public String loginAdherant() {
-        return "logAdherant";
+        return "adherant/logAdherant";
     }
 }
