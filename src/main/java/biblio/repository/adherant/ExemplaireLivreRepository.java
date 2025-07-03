@@ -1,4 +1,4 @@
-package biblio.repository;
+package biblio.repository.adherant;
 
 import biblio.entities.ExemplaireLivre;
 import biblio.entities.Livre;

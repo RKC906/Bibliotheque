@@ -1,8 +1,8 @@
-package biblio.controller;
+package biblio.controller.adherant;
 
 import biblio.entities.Adherant;
-import biblio.services.AuthentificationService;
-import biblio.services.LivreService;
+import biblio.services.adherant.AuthentificationService;
+import biblio.services.adherant.LivreService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,10 +29,10 @@ public class AdherantController {
             model.addAttribute("livres", livreService.getAllLivreDetails());
             model.addAttribute("auteurs", livreService.getAllAuteurs());
             model.addAttribute("categories", livreService.getAllCategories());
-            return "homeAdherant";
+            return "adherant/homeAdherant";
         } else {
             model.addAttribute("error", "Email ou mot de passe incorrect");
-            return "logAdherant";
+            return "adherant/logAdherant";
         }
     }
 
@@ -52,6 +52,6 @@ public class AdherantController {
                 nbPagesMin, nbPagesMax, categorieId, nbExMin, nbExMax));
         model.addAttribute("auteurs", livreService.getAllAuteurs());
         model.addAttribute("categories", livreService.getAllCategories());
-        return "homeAdherant";
+        return "adherant/homeAdherant";
     }
 }

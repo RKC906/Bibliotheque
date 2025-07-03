@@ -1,7 +1,8 @@
-package biblio.services;
+package biblio.services.adherant;
 
 import biblio.entities.Adherant;
-import biblio.repository.AdherantRepository;
+import biblio.repository.adherant.AdherantRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
