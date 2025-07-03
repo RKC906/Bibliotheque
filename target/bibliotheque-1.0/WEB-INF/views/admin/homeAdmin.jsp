@@ -8,5 +8,6 @@
 <body>
     <h1>Bienvenue Admin</h1>
     <a href="${pageContext.request.contextPath}/admin/abonnement">Gérer les abonnements</a>
+    <a href="${pageContext.request.contextPath}/admin/penalite">Gérer les énalités</a>
 </body>
 </html>

@@ -2,6 +2,7 @@
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/Auteur.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/adherant/CategorieLivreRepository.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/adherant/AdherantRepository.java
+/home/itu/java/github/Bibliotheque/src/main/java/biblio/services/admin/PenaliteService.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/controller/admin/AdminController.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/Status.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/Penalite.java
@@ -30,6 +31,7 @@
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/controller/adherant/LivreController.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/services/admin/AbonnementService.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/TypePret.java
+/home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/admin/PenaliteRepository.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/admin/AdminRepository.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/Adherant.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/CategorieLivreAssociation.java

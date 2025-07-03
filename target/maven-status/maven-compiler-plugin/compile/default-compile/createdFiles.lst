@@ -2,6 +2,7 @@ biblio/entities/TypePret.class
 biblio/entities/ReglePret.class
 biblio/repository/adherant/AuthentificationRepository.class
 biblio/entities/Retour.class
+biblio/services/admin/PenaliteService.class
 biblio/services/adherant/AuthentificationService.class
 biblio/controller/ApplicationController.class
 biblio/controller/adherant/AdherantController.class
@@ -32,3 +33,4 @@ biblio/repository/adherant/CategorieLivreAssociationRepository.class
 biblio/services/admin/AdminService.class
 biblio/entities/Adherant.class
 biblio/repository/admin/AbonnementRepository.class
+biblio/repository/admin/PenaliteRepository.class

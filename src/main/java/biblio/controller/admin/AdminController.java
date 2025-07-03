@@ -1,4 +1,3 @@
-
 package biblio.controller.admin;
 
 import biblio.entities.Admin;
@@ -21,6 +20,9 @@ public class AdminController {
 
     @Autowired
     private biblio.services.admin.AbonnementService abonnementService;
+
+    @Autowired
+    private biblio.services.admin.PenaliteService penaliteService;
 
     @GetMapping("/abonnement")
     public String abonnementPage(org.springframework.ui.Model model) {
@@ -71,5 +73,33 @@ public class AdminController {
             model.addAttribute("error", "Email ou mot de passe incorrect");
             return "admin/loginAdmin";
         }
+    }
+
+     @GetMapping("/penalite")
+    public String penalitePage(org.springframework.ui.Model model) {
+        model.addAttribute("penalites", penaliteService.getAllPenalites());
+        return "admin/Penalite";
+    }
+
+    @GetMapping("/penalite/nouveau")
+    public String formNouvellePenalite(org.springframework.ui.Model model) {
+        model.addAttribute("adherants", adherantService.getAllAdherants());
+        return "admin/NouvellePenalite";
+    }
+
+    @PostMapping("/penalite/nouveau")
+    public String creerPenalite(
+            @RequestParam("adherantId") Integer adherantId,
+            @RequestParam("dateDebut") String dateDebut,
+            @RequestParam("dateFin") String dateFin,
+            jakarta.servlet.http.HttpSession session) {
+        biblio.entities.Penalite penalite = new biblio.entities.Penalite();
+        biblio.entities.Adherant adherant = new biblio.entities.Adherant();
+        adherant.setId_Adherant(adherantId);
+        penalite.setAdherant(adherant);
+        penalite.setDate_debut(java.sql.Date.valueOf(dateDebut));
+        penalite.setDate_fin(java.sql.Date.valueOf(dateFin));
+        penaliteService.creerPenalite(penalite, session);
+        return "redirect:/admin/penalite";
     }
 }
