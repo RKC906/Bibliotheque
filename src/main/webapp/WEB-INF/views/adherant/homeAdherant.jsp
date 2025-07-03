@@ -1,8 +1,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="biblio.entities.adherant.Livre" %>
-<%@ page import="biblio.entities.adherant.Auteur" %>
-<%@ page import="biblio.entities.adherant.CategorieLivre" %>
+<%@ page import="biblio.entities.Livre" %>
+<%@ page import="biblio.entities.Auteur" %>
+<%@ page import="biblio.entities.CategorieLivre" %>
 <%
     List<Object[]> livres = (List<Object[]>) request.getAttribute("livres");
 %>

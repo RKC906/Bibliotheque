@@ -22,7 +22,7 @@ public class AdminController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam String email, @RequestParam String motDePasse, Model model) {
+    public String login(@RequestParam("email") String email, @RequestParam("motDePasse") String motDePasse, Model model) {
         Admin admin = adminService.login(email, motDePasse);
         if (admin != null) {
             // Authentification réussie, rediriger vers la page d'accueil admin (à adapter)
