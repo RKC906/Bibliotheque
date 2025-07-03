@@ -6,6 +6,12 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AdherantRepository extends JpaRepository<Adherant, Integer> {
-    Adherant findByAuthentificationEmailAndAuthentificationMotDePasse(String email, String motDePasse);
-    boolean existsByAuthentificationEmail(String email);
+    Adherant findByEmailAndMot_de_passe(String email, String mot_de_passe);
+
+    boolean existsByEmail(String email);
+
+    // Trouver l'adhérant ayant réservé un exemplaire via la réservation
+    @org.springframework.data.jpa.repository.Query("SELECT a FROM Adherant a WHERE a.id_Adherant = (SELECT p.adherant.id_Adherant FROM Pret p WHERE p.exemplaireLivre.id_ExemplaireLivre = (SELECT r.exemplaireLivre.id_ExemplaireLivre FROM Reservation r WHERE r.id_Reservation = :reservationId))")
+    Adherant findAdherantByReservationId(
+            @org.springframework.data.repository.query.Param("reservationId") Integer reservationId);
 }

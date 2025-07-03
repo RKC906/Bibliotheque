@@ -16,9 +16,6 @@ public class ReglePret {
     private Time tempsPretLivre;
     
     @ManyToOne
-    private TypePret typePret;
-    
-    @ManyToOne
     private Profile profile;
 
     public ReglePret() {}
@@ -41,12 +38,6 @@ public class ReglePret {
     }
     public void setTempsPretLivre(Time tempsPretLivre) {
         this.tempsPretLivre = tempsPretLivre;
-    }
-    public TypePret getTypePret() {
-        return typePret;
-    }
-    public void setTypePret(TypePret typePret) {
-        this.typePret = typePret;
     }
     public Profile getProfile() {
         return profile;

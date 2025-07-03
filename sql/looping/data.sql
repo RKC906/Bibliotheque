@@ -53,3 +53,22 @@ INSERT INTO CategorieLivreAssociation(livre_id_Livre, categorieLivre_id_Categori
 INSERT INTO Admin (email, motDePasse) VALUES
 ('admin1@biblio.fr', 'admin123'),
 ('admin2@biblio.fr', 'motdepasse456');
+
+INSERT INTO Status(nom) VALUES
+('En Cours'),
+('Accepter'),
+('Refuser');
+
+INSERT INTO TypePret(nom) VALUES
+('Sur place'),
+('A domicile');
+
+INSERT INTO ReglePret(nbrPretLivre,tempsPretLivre,profile_id_Profile) VALUES
+(3, 15, 1),  -- 3 livres pour 15 jours pour Etudiant
+(6, 20, 2), -- 6 livres pour 20 jours pour Professionnel
+(8, 30, 3),  -- 8 livres pour 30 jours pour Professeur
+(0, 0, 4);   -- Anonyme ne peut pas emprunter
+
+INSERT INTO Status_Adherant(nom) VALUES
+('Actif'),
+('Inactif');
