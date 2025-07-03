@@ -1,11 +1,11 @@
-package biblio.services;
+package biblio.services.adherant;
 
 import biblio.entities.Livre;
-import biblio.repository.LivreRepository;
-import biblio.repository.ExemplaireLivreRepository;
-import biblio.repository.CategorieLivreAssociationRepository;
-import biblio.repository.AuteurRepository;
-import biblio.repository.CategorieLivreRepository;
+import biblio.repository.adherant.AuteurRepository;
+import biblio.repository.adherant.CategorieLivreAssociationRepository;
+import biblio.repository.adherant.CategorieLivreRepository;
+import biblio.repository.adherant.ExemplaireLivreRepository;
+import biblio.repository.adherant.LivreRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package biblio.repository;
+package biblio.repository.adherant;
 
 import biblio.entities.CategorieLivre;
 import org.springframework.data.jpa.repository.JpaRepository;
