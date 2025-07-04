@@ -10,6 +10,5 @@
     <a href="${pageContext.request.contextPath}/admin/abonnement">Gérer les abonnements</a>
     <a href="${pageContext.request.contextPath}/admin/penalite">Gérer les énalités</a>
     <a href="${pageContext.request.contextPath}/admin/reservations">Voir les réservations de livres</a>
-    <a href="${pageContext.request.contextPath}/admin/pret">Gérer les prêts</a>
 </body>
 </html>
