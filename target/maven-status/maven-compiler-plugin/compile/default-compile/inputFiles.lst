@@ -26,7 +26,6 @@
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/admin/AdminRepository.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/controller/adherant/ReservationController.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/CategorieLivreAssociation.java
-/home/itu/java/github/Bibliotheque/src/main/java/biblio/controller/admin/PretController.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/adherant/TypePretRepository.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/adherant/ExemplaireLivreRepository.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/services/admin/AdminService.java
@@ -40,12 +39,10 @@
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/services/adherant/AuthentificationService.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/StatusAdherant.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/Authentification.java
-/home/itu/java/github/Bibliotheque/src/main/java/biblio/services/admin/PretService.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/admin/AbonnementRepository.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/ProfileCategorieLivreAssociation.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/adherant/CategorieLivreAssociationRepository.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/services/adherant/LivreService.java
-/home/itu/java/github/Bibliotheque/src/main/java/biblio/controller/adherant/LivreController.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/services/admin/AbonnementService.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/TypePret.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/Adherant.java

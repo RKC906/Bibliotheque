@@ -11,7 +11,7 @@ public interface AdherantRepository extends JpaRepository<Adherant, Integer> {
     boolean existsByEmail(String email);
 
     // Trouver l'adhérant ayant réservé un exemplaire via la réservation
-    @org.springframework.data.jpa.repository.Query("SELECT a FROM Adherant a WHERE a.id_Adherant = (SELECT p.adherant.id_Adherant FROM Pret p WHERE p.exemplaireLivre.id_ExemplaireLivre = (SELECT r.exemplaireLivre.id_ExemplaireLivre FROM Reservation r WHERE r.id_Reservation = :reservationId))")
+    @org.springframework.data.jpa.repository.Query("SELECT a FROM Adherant a WHERE a.idAdherant = (SELECT p.adherant.idAdherant FROM Pret p WHERE p.exemplaireLivre.idExemplaireLivre = (SELECT r.exemplaireLivre.idExemplaireLivre FROM Reservation r WHERE r.idReservation = :reservationId))")
     Adherant findAdherantByReservationId(
             @org.springframework.data.repository.query.Param("reservationId") Integer reservationId);
 }
