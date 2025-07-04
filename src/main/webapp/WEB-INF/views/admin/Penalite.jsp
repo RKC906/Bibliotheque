@@ -29,8 +29,8 @@
             <tr>
                 <td><%= adherant != null ? adherant.getNom() : "" %></td>
                 <td><%= adherant != null ? adherant.getPrenom() : "" %></td>
-                <td><%= penalite.getDateDebut() %></td>
-                <td><%= penalite.getDateFin() %></td>
+                <td><%= penalite.getDate_debut() %></td>
+                <td><%= penalite.getDate_fin() %></td>
             </tr>
             <%      }
                 }

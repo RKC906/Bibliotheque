@@ -30,8 +30,8 @@
                 <tr>
                     <td><%= adherant != null ? adherant.getNom() : "" %></td>
                     <td><%= adherant != null ? adherant.getPrenom() : "" %></td>
-                    <td><%= abonnement.getDateInscription() %></td>
-                    <td><%= abonnement.getDateFinInscription() %></td>
+                    <td><%= abonnement.getDate_inscription() %></td>
+                    <td><%= abonnement.getDate_fin_inscription() %></td>
                 </tr>
             <%      }
                 }

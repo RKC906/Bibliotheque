@@ -40,7 +40,7 @@
             %>
             <tr>
                 <td><%= livre != null ? livre.getTitre() : "" %></td>
-                <td><%= ex != null ? ex.getIdExemplaireLivre() : "" %></td>
+                <td><%= ex != null ? ex.getId_ExemplaireLivre() : "" %></td>
                 <td><%= adherant != null ? adherant.getNom() + " " + adherant.getPrenom() : "" %></td>
                 <td><%= reservation.getDateReservation() %></td>
                 <td><%= reservation.getStatusEntity() != null ? reservation.getStatusEntity().getNom() : "" %></td>
