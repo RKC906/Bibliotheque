@@ -12,7 +12,7 @@ public class AuthentificationService {
     private AdherantRepository adherantRepository;
 
     public Adherant login(String email, String motDePasse) {
-        return adherantRepository.findByEmailAndMot_de_passe(email, motDePasse);
+        return adherantRepository.findByEmailAndMotDePasse(email, motDePasse);
     }
 
     public boolean emailExists(String email) {

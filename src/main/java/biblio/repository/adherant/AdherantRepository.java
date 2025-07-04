@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AdherantRepository extends JpaRepository<Adherant, Integer> {
-    Adherant findByEmailAndMot_de_passe(String email, String mot_de_passe);
+    Adherant findByEmailAndMotDePasse(String email, String motDePasse);
 
     boolean existsByEmail(String email);
 

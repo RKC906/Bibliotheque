@@ -31,12 +31,12 @@
                     for (Pret pret : prets) {
             %>
             <tr>
-                <td><%= pret.getDate_debut() %></td>
-                <td><%= pret.getDate_fin() %></td>
+                <td><%= pret.getDateDebut() %></td>
+                <td><%= pret.getDateFin() %></td>
                 <td><%= pret.getTypePret() != null ? pret.getTypePret().getNom() : "" %></td>
                 <td><%= pret.getAdmin() != null ? pret.getAdmin().getEmail() : "" %></td>
                 <td><%= pret.getAdherant() != null ? pret.getAdherant().getNom() + " " + pret.getAdherant().getPrenom() : "" %></td>
-                <td><%= pret.getExemplaireLivre() != null ? pret.getExemplaireLivre().getId_ExemplaireLivre() : "" %></td>
+                <td><%= pret.getExemplaireLivre() != null ? pret.getExemplaireLivre().getIdExemplaireLivre() : "" %></td>
             </tr>
             <%      }
                 }

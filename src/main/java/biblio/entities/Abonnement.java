@@ -12,9 +12,9 @@ import biblio.entities.Admin;
 public class Abonnement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_Abonnement;
-    private Date date_inscription;
-    private Date date_fin_inscription;
+    private Integer idAbonnement;
+    private Date dateInscription;
+    private Date dateFinInscription;
 
     @ManyToOne
     private Adherant adherant;
@@ -26,28 +26,28 @@ public class Abonnement {
     }
 
     // Getters and Setters
-    public Integer getId_Abonnement() {
-        return id_Abonnement;
+    public Integer getIdAbonnement() {
+        return idAbonnement;
     }
 
-    public void setId_Abonnement(Integer id_Abonnement) {
-        this.id_Abonnement = id_Abonnement;
+    public void setIdAbonnement(Integer idAbonnement) {
+        this.idAbonnement = idAbonnement;
     }
 
-    public Date getDate_inscription() {
-        return date_inscription;
+    public Date getDateInscription() {
+        return dateInscription;
     }
 
-    public void setDate_inscription(Date date_inscription) {
-        this.date_inscription = date_inscription;
+    public void setDateInscription(Date dateInscription) {
+        this.dateInscription = dateInscription;
     }
 
-    public Date getDate_fin_inscription() {
-        return date_fin_inscription;
+    public Date getDateFinInscription() {
+        return dateFinInscription;
     }
 
-    public void setDate_fin_inscription(Date date_fin_inscription) {
-        this.date_fin_inscription = date_fin_inscription;
+    public void setDateFinInscription(Date dateFinInscription) {
+        this.dateFinInscription = dateFinInscription;
     }
 
     public Adherant getAdherant() {

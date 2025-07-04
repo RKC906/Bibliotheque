@@ -10,30 +10,28 @@ import jakarta.persistence.Column;
 public class Authentification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_Authentification;
-    @Column(nullable = false)
-    private String mot_de_passe;
-    @Column(nullable = false)
+    private Integer idAuthentification;
+    private String motDePasse;
     private String email;
 
     public Authentification() {
     }
 
     // Getters and Setters
-    public Integer getId_Authentification() {
-        return id_Authentification;
+    public Integer getIdAuthentification() {
+        return idAuthentification;
     }
 
-    public void setId_Authentification(Integer id_Authentification) {
-        this.id_Authentification = id_Authentification;
+    public void setIdAuthentification(Integer idAuthentification) {
+        this.idAuthentification = idAuthentification;
     }
 
-    public String getMot_de_passe() {
-        return mot_de_passe;
+    public String getMotDePasse() {
+        return motDePasse;
     }
 
-    public void setMot_de_passe(String mot_de_passe) {
-        this.mot_de_passe = mot_de_passe;
+    public void setMotDePasse(String motDePasse) {
+        this.motDePasse = motDePasse;
     }
 
     public String getEmail() {

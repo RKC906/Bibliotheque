@@ -47,7 +47,7 @@ public class ReservationController {
         ExemplaireLivre exemplaire = new ExemplaireLivre();
         exemplaire.setId_ExemplaireLivre(exemplaireId);
         reservation.setExemplaireLivre(exemplaire);
-        reservation.setDate_reservation(dateReservation);
+        reservation.setDateReservation(dateReservation);
         biblio.entities.TypePret typePret = new biblio.entities.TypePret();
         typePret.setId_TypePret(typePretId);
         reservation.setTypePret(typePret);

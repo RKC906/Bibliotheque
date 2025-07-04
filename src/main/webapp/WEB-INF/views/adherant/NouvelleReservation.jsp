@@ -18,7 +18,7 @@
                 if (exemplaires != null) {
                     for (ExemplaireLivre ex : exemplaires) {
             %>
-                <option value="<%= ex.getId_ExemplaireLivre() %>">Exemplaire #<%= ex.getId_ExemplaireLivre() %></option>
+                <option value="<%= ex.getIdExemplaireLivre() %>">Exemplaire #<%= ex.getIdExemplaireLivre() %></option>
             <%      }
                 }
             %>
@@ -30,7 +30,7 @@
                 if (typesPret != null) {
                     for (TypePret tp : typesPret) {
             %>
-                <option value="<%= tp.getId_TypePret() %>"><%= tp.getNom() %></option>
+                <option value="<%= tp.getIdTypePret() %>"><%= tp.getNom() %></option>
             <%      }
                 }
             %>

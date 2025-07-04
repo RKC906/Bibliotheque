@@ -6,18 +6,18 @@ import jakarta.persistence.Id;
 @Entity
 public class StatusAdherant {
     @Id
-    private Integer id_Status_Adherant;
+    private Integer idStatusAdherant;
     private String nom;
 
     public StatusAdherant() {
     }
 
-    public Integer getId_Status_Adherant() {
-        return id_Status_Adherant;
+    public Integer getIdStatusAdherant() {
+        return idStatusAdherant;
     }
 
-    public void setId_Status_Adherant(Integer id_Status_Adherant) {
-        this.id_Status_Adherant = id_Status_Adherant;
+    public void setIdStatusAdherant(Integer idStatusAdherant) {
+        this.idStatusAdherant = idStatusAdherant;
     }
 
     public String getNom() {

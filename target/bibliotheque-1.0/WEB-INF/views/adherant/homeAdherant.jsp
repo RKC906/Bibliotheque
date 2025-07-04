@@ -40,7 +40,7 @@
         <select name="auteur">
             <option value="">-- Tous --</option>
             <% for (Auteur auteur : auteursList) { %>
-                <option value="<%= auteur.getId_Auteur() %>"><%= auteur.getNom() %> <%= auteur.getPrenom() %></option>
+                <option value="<%= auteur.getIdAuteur() %>"><%= auteur.getNom() %> <%= auteur.getPrenom() %></option>
             <% } %>
         </select>
         Langue :
@@ -53,7 +53,7 @@
         <select name="categorie">
             <option value="">-- Toutes --</option>
             <% for (CategorieLivre cat : categoriesList) { %>
-                <option value="<%= cat.getId_CategorieLivre() %>"><%= cat.getNom() %></option>
+                <option value="<%= cat.getIdCategorieLivre() %>"><%= cat.getNom() %></option>
             <% } %>
         </select>
         Nombre d'exemplaires :
@@ -86,8 +86,8 @@
             <tr>
                 <td><%= livre.getTitre() %></td>
                 <td><%= livre.getAuteur() != null ? livre.getAuteur().getNom() + " " + livre.getAuteur().getPrenom() : "" %></td>
-                <td><%= livre.getDate_publication() %></td>
-                <td><%= livre.getNb_pages() %></td>
+                <td><%= livre.getDatePublication() %></td>
+                <td><%= livre.getNbPages() %></td>
                 <td><%= livre.getLangue() %></td>
                 <td>
                     <%

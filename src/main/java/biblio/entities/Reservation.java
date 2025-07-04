@@ -10,8 +10,8 @@ import jakarta.persistence.ManyToOne;
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_Reservation;
-    private String date_reservation;
+    private Integer idReservation;
+    private String dateReservation;
     private String status;
 
     @ManyToOne
@@ -27,20 +27,20 @@ public class Reservation {
     }
 
     // Getters and Setters
-    public Integer getId_Reservation() {
-        return id_Reservation;
+    public Integer getIdReservation() {
+        return idReservation;
     }
 
-    public void setId_Reservation(Integer id_Reservation) {
-        this.id_Reservation = id_Reservation;
+    public void setIdReservation(Integer idReservation) {
+        this.idReservation = idReservation;
     }
 
-    public String getDate_reservation() {
-        return date_reservation;
+    public String getDateReservation() {
+        return dateReservation;
     }
 
-    public void setDate_reservation(String date_reservation) {
-        this.date_reservation = date_reservation;
+    public void setDateReservation(String dateReservation) {
+        this.dateReservation = dateReservation;
     }
 
     public String getStatus() {
