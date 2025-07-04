@@ -18,7 +18,7 @@
                 if (exemplaires != null) {
                     for (ExemplaireLivre ex : exemplaires) {
             %>
-                <option value="<%= ex.getIdExemplaireLivre() %>">Exemplaire #<%= ex.getIdExemplaireLivre() %></option>
+                <option value="<%= ex.getId_ExemplaireLivre() %>">Exemplaire #<%= ex.getId_ExemplaireLivre() %></option>
             <%      }
                 }
             %>
@@ -30,7 +30,7 @@
                 if (typesPret != null) {
                     for (TypePret tp : typesPret) {
             %>
-                <option value="<%= tp.getIdTypePret() %>"><%= tp.getNom() %></option>
+                <option value="<%= tp.getId_TypePret() %>"><%= tp.getNom() %></option>
             <%      }
                 }
             %>
@@ -39,6 +39,6 @@
         <input type="date" id="dateReservation" name="dateReservation" required><br><br>
         <button type="submit">Valider</button>
     </form>
-    <a href="/adherant/livres">Retour à la liste</a>
+    <a href="${pageContext.request.contextPath}/adherant/livres">Retour à la liste</a>
 </body>
 </html>

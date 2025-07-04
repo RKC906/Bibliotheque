@@ -22,9 +22,6 @@ public class Adherant {
     @JoinColumn(name = "id_Authentification")
     private Authentification authentification;
 
-    private String motDePasse;
-    private String email;
-
     @ManyToOne
     @JoinColumn(name = "id_Profile")
     private Profile profile;
@@ -82,22 +79,6 @@ public class Adherant {
 
     public void setAuthentification(Authentification authentification) {
         this.authentification = authentification;
-    }
-
-    public String getMotDePasse() {
-        return motDePasse;
-    }
-
-    public void setMotDePasse(String motDePasse) {
-        this.motDePasse = motDePasse;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public Profile getProfile() {

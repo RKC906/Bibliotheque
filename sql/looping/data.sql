@@ -9,10 +9,6 @@ INSERT INTO Authentification (email, motDePasse) VALUES
   ('bob@example.com', 'password123');
 
 -- Données pour la table Adherant
-INSERT INTO Adherant (date_naissance, nom, prenom, authentification_id_Authentification, profile_id_Profile) VALUES
-  ('1990-01-01', 'Dupont', 'Alice', 1, 1),
-  ('1985-05-15', 'Martin', 'Bob', 2, 2);
-
 INSERT INTO Auteur(nom, prenom, date_naissance, nationalite, date_deces, biographie, photo) VALUES
 ('Hugo', 'Victor', '1802-02-26', 'Française', '1885-05-22', 'Grand écrivain romantique français', 'hugo.jpg'),
 ('Rowling', 'J.K.', '1965-07-31', 'Britannique', NULL, 'Auteur de la saga Harry Potter', 'rowling.jpg'),
@@ -69,6 +65,10 @@ INSERT INTO ReglePret(nbrPretLivre,tempsPretLivre,profile_id_Profile) VALUES
 (8, 30, 3),  -- 8 livres pour 30 jours pour Professeur
 (0, 0, 4);   -- Anonyme ne peut pas emprunter
 
-INSERT INTO Status_Adherant(nom) VALUES
+INSERT INTO StatusAdherant(nom) VALUES
 ('Actif'),
 ('Inactif');
+
+INSERT INTO Adherant (dateNaissance, nom, prenom, id_Authentification, id_Profile) VALUES
+  ('1990-01-01', 'Dupont', 'Alice', 1, 1),
+  ('1985-05-15', 'Martin', 'Bob', 2, 2);
