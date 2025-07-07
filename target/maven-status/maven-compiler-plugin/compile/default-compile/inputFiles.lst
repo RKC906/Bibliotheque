@@ -32,6 +32,7 @@
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/controller/adherant/AdherantController.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/Livre.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/services/adherant/ReservationService.java
+/home/itu/java/github/Bibliotheque/src/main/java/biblio/services/admin/ReservationAdminService.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/Retour.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/ExemplaireLivre.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/adherant/AuteurRepository.java
@@ -39,6 +40,7 @@
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/services/adherant/AuthentificationService.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/StatusAdherant.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/Authentification.java
+/home/itu/java/github/Bibliotheque/src/main/java/biblio/services/admin/PretService.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/admin/AbonnementRepository.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/ProfileCategorieLivreAssociation.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/adherant/CategorieLivreAssociationRepository.java

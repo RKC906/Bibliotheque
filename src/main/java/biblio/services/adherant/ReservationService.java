@@ -15,16 +15,22 @@ public class ReservationService {
     @Autowired
     private ReservationRepository reservationRepository;
 
-    public List<Reservation> getAllReservations() {
-        return reservationRepository.findAll();
-    }
-
     public Reservation creerReservation(Reservation reservation) {
-        // Par défaut, statusEntity id = 1 (En Cours), status = "En Cours"
+        // Validation minimale
+        if (reservation.getAdherant() == null || reservation.getAdherant().getIdAdherant() == null) {
+            throw new IllegalArgumentException("L'adhérent est requis pour une réservation");
+        }
+        
+        if (reservation.getExemplaireLivre() == null || reservation.getExemplaireLivre().getId_ExemplaireLivre() == null) {
+            throw new IllegalArgumentException("L'exemplaire est requis pour une réservation");
+        }
+
+        // Configuration du statut
         Status status = new Status();
-        status.setId_Status(1);
+        status.setId_Status(1); // 1 = En Cours
         reservation.setStatusEntity(status);
         reservation.setStatus("En Cours");
+
         return reservationRepository.save(reservation);
     }
 }

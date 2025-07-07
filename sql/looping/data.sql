@@ -69,6 +69,6 @@ INSERT INTO StatusAdherant(nom) VALUES
 ('Actif'),
 ('Inactif');
 
-INSERT INTO Adherant (dateNaissance, nom, prenom, id_Authentification, id_Profile) VALUES
-  ('1990-01-01', 'Dupont', 'Alice', 1, 1),
-  ('1985-05-15', 'Martin', 'Bob', 2, 2);
+INSERT INTO Adherant (dateNaissance, nom, prenom, id_Authentification, id_Profile,id_Status_Adherant) VALUES
+  ('1990-01-01', 'Dupont', 'Alice', 1, 1,1),
+  ('1985-05-15', 'Martin', 'Bob', 2, 2,1);

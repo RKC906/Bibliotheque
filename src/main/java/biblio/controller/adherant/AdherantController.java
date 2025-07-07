@@ -3,6 +3,7 @@ package biblio.controller.adherant;
 import biblio.entities.Adherant;
 import biblio.services.adherant.AuthentificationService;
 import biblio.services.adherant.LivreService;
+import jakarta.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,10 +22,12 @@ public class AdherantController {
     private LivreService livreService;
 
     @PostMapping("/adherant/login")
-    public String login(@RequestParam("email") String email, @RequestParam("motDePasse") String motDePasse,
-            Model model) {
+    public String login(@RequestParam("email") String email, @RequestParam("motDePasse") String motDePasse,Model model,HttpSession session) 
+    {
         var adherant = authentificationService.login(email, motDePasse);
-        if (adherant != null) {
+        if (adherant != null) 
+        {
+            session.setAttribute("adherantId", adherant.getIdAdherant());
             model.addAttribute("adherant", adherant);
             model.addAttribute("livres", livreService.getAllLivreDetails());
             model.addAttribute("auteurs", livreService.getAllAuteurs());

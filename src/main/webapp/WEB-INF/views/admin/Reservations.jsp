@@ -1,68 +1,80 @@
-<%@ page import="java.util.List" %>
-<%@ page import="biblio.entities.Reservation" %>
-<%@ page import="biblio.entities.ExemplaireLivre" %>
-<%@ page import="biblio.entities.Livre" %>
-<%@ page import="biblio.entities.Adherant" %>
+<%@ page import="java.util.List, biblio.entities.Reservation, biblio.entities.Adherant" %>
+
+<%
+// Récupération des données
+List<Reservation> reservations = (List<Reservation>) request.getAttribute("reservations");
+String success = (String) request.getAttribute("success");
+String error = (String) request.getAttribute("error");
+%>
+
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Réservations des livres</title>
+    <title>Gestion des Réservations</title>
 </head>
 <body>
-    <h2>Liste des réservations de livres</h2>
-    <a href="${pageContext.request.contextPath}/admin/home">Retour admin</a>
-    <% if (request.getAttribute("error") != null) { %>
-        <div style="color:red;"><%= request.getAttribute("error") %></div>
+    <h1>Liste des Réservations</h1>
+    
+    <%-- Affichage des messages --%>
+    <% if (success != null) { %>
+        <p style="color:green;"><%= success %></p>
     <% } %>
-    <% if (request.getAttribute("success") != null) { %>
-        <div style="color:green;"><%= request.getAttribute("success") %></div>
+    
+    <% if (error != null) { %>
+        <p style="color:red;"><%= error %></p>
     <% } %>
+    
     <table border="1">
-        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Livre</th>
+            <th>Adhérent</th>
+            <th>Date</th>
+            <th>Statut</th>
+            <th>Actions</th>
+        </tr>
+        
+        <% for (Reservation reservation : reservations) { 
+            Adherant adherant = (Adherant) request.getAttribute("adherant_" + reservation.getIdReservation());
+            String statusText = "";
+            switch(reservation.getStatusEntity().getId_Status()) {
+                case 1: statusText = "En attente"; break;
+                case 2: statusText = "Acceptée"; break;
+                case 3: statusText = "Refusée"; break;
+            }
+        %>
             <tr>
-                <th>Livre</th>
-                <th>Exemplaire</th>
-                <th>Adhérant</th>
-                <th>Date de réservation</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% 
-                List<Reservation> reservations = (List<Reservation>) request.getAttribute("reservations");
-                if (reservations != null) {
-                    for (Reservation reservation : reservations) {
-                        ExemplaireLivre ex = reservation.getExemplaireLivre();
-                        Livre livre = ex != null ? ex.getLivre() : null;
-                        Adherant adherant = (Adherant) request.getAttribute("adherant_" + reservation.getIdReservation());
-            %>
-            <tr>
-                <td><%= livre != null ? livre.getTitre() : "" %></td>
-                <td><%= ex != null ? ex.getId_ExemplaireLivre() : "" %></td>
-                <td><%= adherant != null ? adherant.getNom() + " " + adherant.getPrenom() : "" %></td>
-                <td><%= reservation.getDateReservation() %></td>
-                <td><%= reservation.getStatusEntity() != null ? reservation.getStatusEntity().getNom() : "" %></td>
+                <td><%= reservation.getIdReservation() %></td>
                 <td>
-                    <% if (reservation.getStatusEntity() != null && "En Cours".equals(reservation.getStatusEntity().getNom())) { %>
-                        <form action="${pageContext.request.contextPath}/admin/reservations/accepter" method="post" style="display:inline;">
-                            <input type="hidden" name="reservationId" value="<%= reservation.getIdReservation() %>" />
-                            <button type="submit">Accepter</button>
+                    <% if (reservation.getExemplaireLivre() != null) { %>
+                        <%= reservation.getExemplaireLivre().getLivre().getTitre() %>
+                    <% } %>
+                </td>
+                <td>
+                    <% if (adherant != null) { %>
+                        <%= adherant.getNom() %> <%= adherant.getPrenom() %>
+                    <% } %>
+                </td>
+                <td><%= reservation.getDateReservation() %></td>
+                <td><%= statusText %></td>
+                <td>
+                    <% if (reservation.getStatusEntity().getId_Status() == 1) { %>
+                        <form action="${pageContext.request.contextPath}/admin/reservations/accepter" method="post">
+                            <input type="hidden" name="reservationId" value="<%= reservation.getIdReservation() %>">
+                            <input type="submit" value="Accepter">
                         </form>
-                        <form action="${pageContext.request.contextPath}/admin/reservations/refuser" method="post" style="display:inline;">
-                            <input type="hidden" name="reservationId" value="<%= reservation.getIdReservation() %>" />
-                            <button type="submit">Refuser</button>
+                        
+                        <form action="${pageContext.request.contextPath}/admin/reservations/refuser" method="post">
+                            <input type="hidden" name="reservationId" value="<%= reservation.getIdReservation() %>">
+                            <input type="submit" value="Refuser">
                         </form>
                     <% } else { %>
-                        <em>Action terminée</em>
+                        Action terminée
                     <% } %>
                 </td>
             </tr>
-            <%      }
-                }
-            %>
-        </tbody>
+        <% } %>
     </table>
 </body>
 </html>

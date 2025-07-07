@@ -1,9 +1,11 @@
 package biblio.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
@@ -22,6 +24,11 @@ public class Reservation {
 
     @ManyToOne
     private ExemplaireLivre exemplaireLivre;
+
+    @ManyToOne(fetch = FetchType.EAGER) // ou LAZY selon vos besoins
+    @JoinColumn(name = "adherant_id")
+    private Adherant adherant;
+
 
     public Reservation() {
     }
@@ -73,5 +80,13 @@ public class Reservation {
 
     public void setExemplaireLivre(ExemplaireLivre exemplaireLivre) {
         this.exemplaireLivre = exemplaireLivre;
+    }
+
+        public Adherant getAdherant() {
+        return adherant;
+    }
+
+    public void setAdherant(Adherant adherant) {
+        this.adherant = adherant;
     }
 }

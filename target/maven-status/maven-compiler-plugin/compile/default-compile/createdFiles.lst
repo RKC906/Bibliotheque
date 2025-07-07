@@ -1,3 +1,4 @@
+biblio/services/admin/ReservationAdminService.class
 biblio/entities/Retour.class
 biblio/services/admin/PenaliteService.class
 biblio/repository/adherant/ProfileCategorieLivreRepository.class
@@ -5,6 +6,7 @@ biblio/repository/adherant/ReservationRepository.class
 biblio/repository/adherant/ReglePretRepository.class
 biblio/repository/adherant/ProfileCategorieLivreAssociationRepository.class
 biblio/repository/adherant/AdherantRepository.class
+biblio/services/admin/PretService.class
 biblio/entities/ExemplaireLivre.class
 biblio/entities/CategorieLivreAssociation.class
 biblio/entities/Auteur.class
