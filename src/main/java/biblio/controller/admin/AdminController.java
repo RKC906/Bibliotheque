@@ -49,7 +49,7 @@ public class AdminController {
         abonnement.setDateInscription(java.sql.Date.valueOf(dateInscription));
         abonnement.setDateFinInscription(java.sql.Date.valueOf(dateFinInscription));
         abonnementService.creerAbonnement(abonnement, session);
-        return "redirect:/admin/Abonnement"; // Redirect to the abonnement page
+        return "admin/Abonnement"; 
     }
 
     @Autowired
@@ -100,6 +100,6 @@ public class AdminController {
         penalite.setDateDebut(java.sql.Date.valueOf(dateDebut));
         penalite.setDateFin(java.sql.Date.valueOf(dateFin));
         penaliteService.creerPenalite(penalite, session);
-        return "redirect:/admin/penalite";
+        return "admin/penalite";
     }
 }

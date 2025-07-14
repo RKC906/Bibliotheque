@@ -17,7 +17,7 @@
                 if (adherants != null) {
                     for (Adherant adherant : adherants) {
             %>
-                <option value="<%= adherant.getId_Adherant() %>"><%= adherant.getNom() %> <%= adherant.getPrenom() %></option>
+                <option value="<%= adherant.getIdAdherant() %>"><%= adherant.getNom() %> <%= adherant.getPrenom() %></option>
             <%      }
                 }
             %>

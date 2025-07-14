@@ -31,4 +31,6 @@ public interface AdherantRepository extends JpaRepository<Adherant, Integer> {
         )
     """)
     Adherant findAdherantByReservationId(@Param("reservationId") Integer reservationId);
+
+    
 }
