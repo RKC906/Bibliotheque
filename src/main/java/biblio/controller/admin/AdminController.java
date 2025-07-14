@@ -25,8 +25,8 @@ public class AdminController {
     private biblio.services.admin.PenaliteService penaliteService;
 
     @GetMapping("/abonnement")
-    public String abonnementPage(org.springframework.ui.Model model) {
-        model.addAttribute("abonnements", abonnementService.getAllAbonnements());
+    public String listeAbonnements(Model model) {
+        model.addAttribute("abonnements", abonnementService.getAllAbonnementsWithAdherant());
         return "admin/Abonnement";
     }
 

@@ -15,9 +15,4 @@ public class AdherantService {
     public List<Adherant> getAllAdherants() {
         return adherantRepository.findAll();
     }
-
-    public List<Adherant> getAdherantAbonnes()
-    {
-        return adherantRepository.findAdherantAbonnes();
-    }
 }

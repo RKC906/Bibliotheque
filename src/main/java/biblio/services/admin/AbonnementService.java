@@ -16,12 +16,11 @@ public class AbonnementService {
     @Autowired
     private AbonnementRepository abonnementRepository;
 
-    public List<Abonnement> getAllAbonnements() {
-        return abonnementRepository.findAll();
+     public List<Abonnement> getAllAbonnementsWithAdherant() {
+        return abonnementRepository.findAllWithAdherant();
     }
 
     public Abonnement creerAbonnement(Abonnement abonnement, HttpSession session) {
-        // Récupérer l'admin connecté depuis la session
         Integer adminId = (Integer) session.getAttribute("adminId");
         if (adminId != null) {
             Admin admin = new Admin();
