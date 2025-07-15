@@ -27,7 +27,7 @@ public class AdminController {
     @GetMapping("/accueil")
     public String accueil() 
     {
-        return "admin/loginAdmin";
+        return "admin/homeAdmin";
     }
 
     @GetMapping("/abonnement")
