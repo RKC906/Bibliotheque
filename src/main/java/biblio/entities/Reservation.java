@@ -1,17 +1,19 @@
 package biblio.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_Reservation;
-    private String date_reservation;
+    private Integer idReservation;
+    private String dateReservation;
     private String status;
 
     @ManyToOne
@@ -23,24 +25,29 @@ public class Reservation {
     @ManyToOne
     private ExemplaireLivre exemplaireLivre;
 
+    @ManyToOne(fetch = FetchType.EAGER) // ou LAZY selon vos besoins
+    @JoinColumn(name = "adherant_id")
+    private Adherant adherant;
+
+
     public Reservation() {
     }
 
     // Getters and Setters
-    public Integer getId_Reservation() {
-        return id_Reservation;
+    public Integer getIdReservation() {
+        return idReservation;
     }
 
-    public void setId_Reservation(Integer id_Reservation) {
-        this.id_Reservation = id_Reservation;
+    public void setIdReservation(Integer idReservation) {
+        this.idReservation = idReservation;
     }
 
-    public String getDate_reservation() {
-        return date_reservation;
+    public String getDateReservation() {
+        return dateReservation;
     }
 
-    public void setDate_reservation(String date_reservation) {
-        this.date_reservation = date_reservation;
+    public void setDateReservation(String dateReservation) {
+        this.dateReservation = dateReservation;
     }
 
     public String getStatus() {
@@ -73,5 +80,13 @@ public class Reservation {
 
     public void setExemplaireLivre(ExemplaireLivre exemplaireLivre) {
         this.exemplaireLivre = exemplaireLivre;
+    }
+
+        public Adherant getAdherant() {
+        return adherant;
+    }
+
+    public void setAdherant(Adherant adherant) {
+        this.adherant = adherant;
     }
 }

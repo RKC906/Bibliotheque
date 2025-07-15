@@ -4,60 +4,62 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import java.util.Date;
 
 import biblio.entities.Admin;
 
 @Entity
-public class Pret 
-{
+public class Pret {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_pret;
-    private Date date_debut;
-    private Date date_fin;
+    private Integer idPret;
+    private Date dateDebut;
+    private Date dateFin;
 
     @ManyToOne
+    @JoinColumn(name = "adherant_idAdherant")
     private Adherant adherant;
-
+    
     @ManyToOne
+    @JoinColumn(name = "admin_id_Admin")
     private Admin admin;
 
     @ManyToOne
+    @JoinColumn(name = "exemplaireLivre_id_ExemplaireLivre")
     private ExemplaireLivre exemplaireLivre;
 
     @ManyToOne
+    @JoinColumn(name = "typePret_id_TypePret")
     private TypePret typePret;
-    
-  
 
     public Pret() {
     }
 
     // Getters and Setters
-    public Integer getId_pret() {
-        return id_pret;
+    public Integer getIdPret() {
+        return idPret;
     }
 
-    public void setId_pret(Integer id_pret) {
-        this.id_pret = id_pret;
+    public void setIdPret(Integer idPret) {
+        this.idPret = idPret;
     }
 
-    public Date getDate_debut() {
-        return date_debut;
+    public Date getDateDebut() {
+        return dateDebut;
     }
 
-    public void setDate_debut(Date date_debut) {
-        this.date_debut = date_debut;
+    public void setDateDebut(Date dateDebut) {
+        this.dateDebut = dateDebut;
     }
 
-    public Date getDate_fin() {
-        return date_fin;
+    public Date getDateFin() {
+        return dateFin;
     }
 
-    public void setDate_fin(Date date_fin) {
-        this.date_fin = date_fin;
+    public void setDateFin(Date dateFin) {
+        this.dateFin = dateFin;
     }
 
     public Adherant getAdherant() {
@@ -84,7 +86,7 @@ public class Pret
         this.exemplaireLivre = exemplaireLivre;
     }
 
-      public TypePret getTypePret() {
+    public TypePret getTypePret() {
         return typePret;
     }
 

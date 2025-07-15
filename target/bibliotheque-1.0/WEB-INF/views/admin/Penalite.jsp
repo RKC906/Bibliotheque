@@ -29,13 +29,14 @@
             <tr>
                 <td><%= adherant != null ? adherant.getNom() : "" %></td>
                 <td><%= adherant != null ? adherant.getPrenom() : "" %></td>
-                <td><%= penalite.getDate_debut() %></td>
-                <td><%= penalite.getDate_fin() %></td>
+                <td><%= penalite.getDateDebut() %></td>
+                <td><%= penalite.getDateFin() %></td>
             </tr>
             <%      }
                 }
             %>
         </tbody>
     </table>
+<a href="${pageContext.request.contextPath}/admin/accueil">Retour à l'accueil</a>
 </body>
 </html>

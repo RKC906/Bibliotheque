@@ -9,10 +9,10 @@ import jakarta.persistence.OneToMany;
 public class Adherant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_Adherant;
+    private Integer idAdherant;
     private String nom;
     private String prenom;
-    private Date date_naissance;
+    private Date dateNaissance;
 
     @ManyToOne
     @JoinColumn(name = "id_Status_Adherant")
@@ -21,9 +21,6 @@ public class Adherant {
     @ManyToOne
     @JoinColumn(name = "id_Authentification")
     private Authentification authentification;
-
-    private String mot_de_passe;
-    private String email;
 
     @ManyToOne
     @JoinColumn(name = "id_Profile")
@@ -36,12 +33,12 @@ public class Adherant {
     }
 
     // Getters and Setters
-    public Integer getId_Adherant() {
-        return id_Adherant;
+    public Integer getIdAdherant() {
+        return idAdherant;
     }
 
-    public void setId_Adherant(Integer id_Adherant) {
-        this.id_Adherant = id_Adherant;
+    public void setIdAdherant(Integer idAdherant) {
+        this.idAdherant = idAdherant;
     }
 
     public String getNom() {
@@ -60,12 +57,12 @@ public class Adherant {
         this.prenom = prenom;
     }
 
-    public Date getDate_naissance() {
-        return date_naissance;
+    public Date getDateNaissance() {
+        return dateNaissance;
     }
 
-    public void setDate_naissance(Date date_naissance) {
-        this.date_naissance = date_naissance;
+    public void setDateNaissance(Date dateNaissance) {
+        this.dateNaissance = dateNaissance;
     }
 
     public StatusAdherant getStatusAdherant() {
@@ -82,22 +79,6 @@ public class Adherant {
 
     public void setAuthentification(Authentification authentification) {
         this.authentification = authentification;
-    }
-
-    public String getMot_de_passe() {
-        return mot_de_passe;
-    }
-
-    public void setMot_de_passe(String mot_de_passe) {
-        this.mot_de_passe = mot_de_passe;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public Profile getProfile() {
@@ -121,7 +102,7 @@ public class Adherant {
         if (abonnements == null || abonnements.isEmpty())
             return null;
         return abonnements.stream()
-                .map(Abonnement::getDate_fin_inscription)
+                .map(Abonnement::getDateFinInscription)
                 .filter(java.util.Objects::nonNull)
                 .max(java.util.Date::compareTo)
                 .orElse(null);

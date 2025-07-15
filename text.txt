@@ -1,0 +1,242 @@
+je veux juste une seule fonction qui recupere juste la liste des adherant dans la table abonnements avec les details de l'adherant sa date de debut inscription et sa date fin inscription sans changer mes entities deja presentes, voici AbonnementService : 
+package biblio.services.admin;
+
+import biblio.entities.Admin;
+import jakarta.servlet.http.HttpSession;
+
+import biblio.entities.Abonnement;
+import biblio.repository.admin.AbonnementRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class AbonnementService {
+    @Autowired
+    private AbonnementRepository abonnementRepository;
+
+    public List<Abonnement> getAllAbonnements() {
+        return abonnementRepository.findAll();
+    }
+
+    public Abonnement creerAbonnement(Abonnement abonnement, HttpSession session) {
+        // Récupérer l'admin connecté depuis la session
+        Integer adminId = (Integer) session.getAttribute("adminId");
+        if (adminId != null) {
+            Admin admin = new Admin();
+            admin.setId_Admin(adminId);
+            abonnement.setAdmin(admin);
+        }
+        return abonnementRepository.save(abonnement);
+    }
+}
+ et dans la page jsp, utilise <%......%> et des imports hors du code html pour recuperer les donnees
+
+
+package biblio.repository.admin;
+
+import biblio.entities.Abonnement;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface AbonnementRepository extends JpaRepository<Abonnement, Integer> {
+    
+    @Query("SELECT a FROM Abonnement a JOIN FETCH a.adherant")
+    List<Abonnement> findAllWithAdherant();
+} 
+
+pourquoi tu utilise a.adherant alors qu'il n'y a pas de ca dans la table, pourquoi tu n'utilise pas une requete pour joindre les deux tables Abonnement et Adherant
+
+
+ CREATE TABLE Auteur(
+   id_Auteur INT AUTO_INCREMENT,
+   nom VARCHAR(50)  NOT NULL,
+   prenom VARCHAR(50)  NOT NULL,
+   date_naissance DATE NOT NULL,
+   nationalite VARCHAR(50)  NOT NULL,
+   date_deces DATE,
+   biographie VARCHAR(50) ,
+   photo VARCHAR(100) ,
+   PRIMARY KEY(id_Auteur)
+);
+
+CREATE TABLE CategorieLivre(
+   id_CategorieLivre INT AUTO_INCREMENT,
+   nom VARCHAR(50)  NOT NULL,
+   PRIMARY KEY(id_CategorieLivre),
+   UNIQUE(nom)
+);
+
+CREATE TABLE Profile(
+   id_Profile INT AUTO_INCREMENT,
+   nom VARCHAR(50)  NOT NULL,
+   PRIMARY KEY(id_Profile),
+   UNIQUE(nom)
+);
+
+CREATE TABLE ReglePret(
+   id_ReglePret INT AUTO_INCREMENT,
+   nbrPretLivre INT NOT NULL,
+   tempsPretLivre TIME NOT NULL,
+   id_Profile INT NOT NULL,
+   PRIMARY KEY(id_ReglePret),
+   UNIQUE(id_Profile),
+   FOREIGN KEY(id_Profile) REFERENCES Profile(id_Profile)
+);
+
+CREATE TABLE Authentification(
+   id_Authentification INT AUTO_INCREMENT,
+   mot_de_passe VARCHAR(50) ,
+   email VARCHAR(50) ,
+   PRIMARY KEY(id_Authentification, mot_de_passe, email)
+);
+
+CREATE TABLE TypePret(
+   id_TypePret INT AUTO_INCREMENT,
+   nom VARCHAR(50)  NOT NULL,
+   PRIMARY KEY(id_TypePret),
+   UNIQUE(nom)
+);
+
+CREATE TABLE Status(
+   id_Status INT AUTO_INCREMENT,
+   nom VARCHAR(50)  NOT NULL,
+   PRIMARY KEY(id_Status),
+   UNIQUE(nom)
+);
+
+CREATE TABLE Admin(
+   id_Admin INT,
+   email VARCHAR(100)  NOT NULL,
+   motDePasse VARCHAR(100)  NOT NULL,
+   PRIMARY KEY(id_Admin)
+);
+
+CREATE TABLE Livre(
+   id_Livre INT AUTO_INCREMENT,
+   titre VARCHAR(50)  NOT NULL,
+   date_publication DATE NOT NULL,
+   nb_pages INT NOT NULL,
+   langue VARCHAR(20)  NOT NULL,
+   tags VARCHAR(50)  NOT NULL,
+   id_Auteur INT NOT NULL,
+   PRIMARY KEY(id_Livre),
+   FOREIGN KEY(id_Auteur) REFERENCES Auteur(id_Auteur)
+);
+
+CREATE TABLE ExemplaireLivre(
+   id_ExemplaireLivre INT AUTO_INCREMENT,
+   id_Livre INT NOT NULL,
+   PRIMARY KEY(id_ExemplaireLivre),
+   FOREIGN KEY(id_Livre) REFERENCES Livre(id_Livre)
+);
+
+CREATE TABLE Adherant(
+   id_Adherant INT AUTO_INCREMENT,
+   nom VARCHAR(50)  NOT NULL,
+   prenom VARCHAR(50)  NOT NULL,
+   date_naissance DATE NOT NULL,
+   id_Authentification INT NOT NULL,
+   mot_de_passe VARCHAR(50)  NOT NULL,
+   email VARCHAR(50)  NOT NULL,
+   id_Profile INT NOT NULL,
+   PRIMARY KEY(id_Adherant),
+   UNIQUE(id_Authentification, mot_de_passe, email),
+   FOREIGN KEY(id_Authentification, mot_de_passe, email) REFERENCES Authentification(id_Authentification, mot_de_passe, email),
+   FOREIGN KEY(id_Profile) REFERENCES Profile(id_Profile)
+);
+
+CREATE TABLE Abonnement(
+   id_Abonnement INT AUTO_INCREMENT,
+   date_inscription DATE NOT NULL,
+   date_fin_inscription DATE NOT NULL,
+   id_Admin INT NOT NULL,
+   id_Adherant INT NOT NULL,
+   PRIMARY KEY(id_Abonnement),
+   UNIQUE(id_Adherant),
+   FOREIGN KEY(id_Admin) REFERENCES Admin(id_Admin),
+   FOREIGN KEY(id_Adherant) REFERENCES Adherant(id_Adherant)
+);
+
+CREATE TABLE Reservation(
+   id_Reservation INT AUTO_INCREMENT,
+   date_reservation VARCHAR(50) ,
+   status VARCHAR(50)  NOT NULL,
+   id_TypePret INT NOT NULL,
+   id_Status INT NOT NULL,
+   id_ExemplaireLivre INT NOT NULL,
+   PRIMARY KEY(id_Reservation),
+   UNIQUE(id_TypePret),
+   UNIQUE(id_ExemplaireLivre),
+   FOREIGN KEY(id_TypePret) REFERENCES TypePret(id_TypePret),
+   FOREIGN KEY(id_Status) REFERENCES Status(id_Status),
+   FOREIGN KEY(id_ExemplaireLivre) REFERENCES ExemplaireLivre(id_ExemplaireLivre)
+);
+
+CREATE TABLE Penalite(
+   id_Penalite INT AUTO_INCREMENT,
+   date_debut DATE NOT NULL,
+   date_fin DATE NOT NULL,
+   id_Admin INT NOT NULL,
+   id_Adherant INT NOT NULL,
+   PRIMARY KEY(id_Penalite),
+   FOREIGN KEY(id_Admin) REFERENCES Admin(id_Admin),
+   FOREIGN KEY(id_Adherant) REFERENCES Adherant(id_Adherant)
+);
+
+CREATE TABLE Pret(
+   id_pret INT AUTO_INCREMENT,
+   date_debut DATE NOT NULL,
+   date_fin DATE NOT NULL,
+   id_TypePret INT NOT NULL,
+   id_Admin INT NOT NULL,
+   id_Adherant INT NOT NULL,
+   id_ExemplaireLivre INT NOT NULL,
+   PRIMARY KEY(id_pret),
+   UNIQUE(id_TypePret),
+   UNIQUE(id_ExemplaireLivre),
+   FOREIGN KEY(id_TypePret) REFERENCES TypePret(id_TypePret),
+   FOREIGN KEY(id_Admin) REFERENCES Admin(id_Admin),
+   FOREIGN KEY(id_Adherant) REFERENCES Adherant(id_Adherant),
+   FOREIGN KEY(id_ExemplaireLivre) REFERENCES ExemplaireLivre(id_ExemplaireLivre)
+);
+
+CREATE TABLE Retour(
+   id_Retour INT AUTO_INCREMENT,
+   date_ DATE NOT NULL,
+   id_pret INT NOT NULL,
+   PRIMARY KEY(id_Retour),
+   UNIQUE(id_pret),
+   FOREIGN KEY(id_pret) REFERENCES Pret(id_pret)
+);
+
+CREATE TABLE categorie_livre(
+   id_Livre INT,
+   id_CategorieLivre INT,
+   PRIMARY KEY(id_Livre, id_CategorieLivre),
+   FOREIGN KEY(id_Livre) REFERENCES Livre(id_Livre),
+   FOREIGN KEY(id_CategorieLivre) REFERENCES CategorieLivre(id_CategorieLivre)
+);
+
+CREATE TABLE Asso_16_1(
+   id_Livre INT,
+   id_Profile INT,
+   PRIMARY KEY(id_Livre, id_Profile),
+   FOREIGN KEY(id_Livre) REFERENCES Livre(id_Livre),
+   FOREIGN KEY(id_Profile) REFERENCES Profile(id_Profile)
+);
+
+CREATE TABLE Asso_20_2(
+   id_Adherant INT,
+   id_Reservation INT,
+   PRIMARY KEY(id_Adherant, id_Reservation),
+   FOREIGN KEY(id_Adherant) REFERENCES Adherant(id_Adherant),
+   FOREIGN KEY(id_Reservation) REFERENCES Reservation(id_Reservation)
+);
+
+

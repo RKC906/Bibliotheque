@@ -1,6 +1,10 @@
 <%@ page import="java.util.List" %>
 <%@ page import="biblio.entities.Abonnement" %>
-<%@ page import="biblio.entities.Adherant" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%
+List<Abonnement> abonnements = (List<Abonnement>) request.getAttribute("abonnements");
+SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+%>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -12,31 +16,22 @@
     <h2>Liste des abonnés</h2>
     <a href="${pageContext.request.contextPath}/admin/abonnement/nouveau">Ajouter un abonnement</a>
     <table border="1">
-        <thead>
-            <tr>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Date inscription</th>
-                <th>Date fin inscription</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% 
-                List<Abonnement> abonnements = (List<Abonnement>) request.getAttribute("abonnements");
-                if (abonnements != null) {
-                    for (Abonnement abonnement : abonnements) {
-                        Adherant adherant = abonnement.getAdherant();
-            %>
-                <tr>
-                    <td><%= adherant != null ? adherant.getNom() : "" %></td>
-                    <td><%= adherant != null ? adherant.getPrenom() : "" %></td>
-                    <td><%= abonnement.getDate_inscription() %></td>
-                    <td><%= abonnement.getDate_fin_inscription() %></td>
-                </tr>
-            <%      }
-                }
-            %>
-        </tbody>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Date Début</th>
+            <th>Date Fin</th>
+        </tr>
+        
+        <% for (Abonnement abonnement : abonnements) { %>
+        <tr>
+            <td><%= abonnement.getAdherant().getNom() %></td>
+            <td><%= abonnement.getAdherant().getPrenom() %></td>
+            <td><%= dateFormat.format(abonnement.getDateInscription()) %></td>
+            <td><%= dateFormat.format(abonnement.getDateFinInscription()) %></td>
+        </tr>
+        <% } %>
     </table>
+<a href="${pageContext.request.contextPath}/admin/accueil">Retour à l'accueil</a>
 </body>
 </html>

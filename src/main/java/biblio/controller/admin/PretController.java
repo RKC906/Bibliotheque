@@ -1,32 +1,28 @@
 package biblio.controller.admin;
 
-import biblio.entities.Pret;
-import biblio.entities.TypePret;
-import biblio.entities.Admin;
-import biblio.entities.Adherant;
-import biblio.entities.ExemplaireLivre;
+import biblio.repository.admin.RetourRepository;
 import biblio.services.admin.PretService;
+import biblio.services.admin.RetourService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.List;
 
 @Controller
-@RequestMapping("/admin/pret")
+@RequestMapping("/admin/prets")
 public class PretController {
     @Autowired
     private PretService pretService;
+   
+    @Autowired
+    private RetourService retourService;
 
-    @GetMapping("")
-    public String listPrets(Model model) {
-        List<Pret> prets = pretService.getAllPrets();
-        model.addAttribute("prets", prets);
-        return "admin/Prets";
+     @GetMapping("/liste")
+    public String listPretsWithAdherants(Model model) {
+        model.addAttribute("prets", pretService.getActivePretsWithAdherants());
+        model.addAttribute("pretsRendus", retourService.getIdPretsRendus());
+        return "admin/listePrets";
     }
-    // Ajoute ici les méthodes pour créer, éditer, supprimer un prêt si besoin
 }

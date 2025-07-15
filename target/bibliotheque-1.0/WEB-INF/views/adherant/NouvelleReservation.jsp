@@ -1,5 +1,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="biblio.entities.ExemplaireLivre" %>
+<%@ page import="biblio.entities.TypePret" %>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -22,10 +23,22 @@
                 }
             %>
         </select><br><br>
+        <label for="typePretId">Type de prêt :</label>
+        <select id="typePretId" name="typePretId" required>
+            <% 
+                List<TypePret> typesPret = (List<TypePret>) request.getAttribute("typesPret");
+                if (typesPret != null) {
+                    for (TypePret tp : typesPret) {
+            %>
+                <option value="<%= tp.getId_TypePret() %>"><%= tp.getNom() %></option>
+            <%      }
+                }
+            %>
+        </select><br><br>
         <label for="dateReservation">Date de réservation :</label>
         <input type="date" id="dateReservation" name="dateReservation" required><br><br>
         <button type="submit">Valider</button>
     </form>
-    <a href="/adherant/livres">Retour à la liste</a>
+    <a href="${pageContext.request.contextPath}/adherant/livres">Retour à la liste</a>
 </body>
 </html>

@@ -9,10 +9,6 @@ INSERT INTO Authentification (email, motDePasse) VALUES
   ('bob@example.com', 'password123');
 
 -- Données pour la table Adherant
-INSERT INTO Adherant (date_naissance, nom, prenom, authentification_id_Authentification, profile_id_Profile) VALUES
-  ('1990-01-01', 'Dupont', 'Alice', 1, 1),
-  ('1985-05-15', 'Martin', 'Bob', 2, 2);
-
 INSERT INTO Auteur(nom, prenom, date_naissance, nationalite, date_deces, biographie, photo) VALUES
 ('Hugo', 'Victor', '1802-02-26', 'Française', '1885-05-22', 'Grand écrivain romantique français', 'hugo.jpg'),
 ('Rowling', 'J.K.', '1965-07-31', 'Britannique', NULL, 'Auteur de la saga Harry Potter', 'rowling.jpg'),
@@ -69,6 +65,24 @@ INSERT INTO ReglePret(nbrPretLivre,tempsPretLivre,profile_id_Profile) VALUES
 (8, 30, 3),  -- 8 livres pour 30 jours pour Professeur
 (0, 0, 4);   -- Anonyme ne peut pas emprunter
 
-INSERT INTO Status_Adherant(nom) VALUES
+INSERT INTO StatusAdherant(nom) VALUES
 ('Actif'),
 ('Inactif');
+
+INSERT INTO Adherant (dateNaissance, nom, prenom, id_Authentification, id_Profile,id_Status_Adherant) VALUES
+  ('1990-01-01', 'Dupont', 'Alice', 1, 1,1),
+  ('1985-05-15', 'Martin', 'Bob', 2, 2,1);
+
+-- Prêt de Alice Dupont pour un exemplaire de "Les Misérables"
+INSERT INTO Pret (dateDebut, dateFin, adherant_idAdherant, admin_id_Admin, exemplaireLivre_id_ExemplaireLivre, typePret_id_TypePret) VALUES
+('2025-07-01 10:00:00', '2025-07-16 10:00:00', 1, 1, 1, 2),
+
+-- Prêt de Bob Martin pour un exemplaire de "1984"
+('2025-07-05 14:00:00', '2025-07-25 14:00:00', 2, 2, 6, 2),
+
+-- Prêt de Alice pour un exemplaire de "Le Petit Prince"
+('2025-07-10 09:30:00', '2025-07-25 09:30:00', 1, 1, 12, 1),
+
+-- Prêt de Bob pour un exemplaire de "Harry Potter"
+('2025-07-12 11:00:00', '2025-07-27 11:00:00', 2, 1, 4, 2);
+
