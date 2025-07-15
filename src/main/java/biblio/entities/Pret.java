@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import java.util.Date;
 
@@ -18,15 +19,19 @@ public class Pret {
     private Date dateFin;
 
     @ManyToOne
+    @JoinColumn(name = "adherant_idAdherant")
     private Adherant adherant;
-
+    
     @ManyToOne
+    @JoinColumn(name = "admin_id_Admin")
     private Admin admin;
 
     @ManyToOne
+    @JoinColumn(name = "exemplaireLivre_id_ExemplaireLivre")
     private ExemplaireLivre exemplaireLivre;
 
     @ManyToOne
+    @JoinColumn(name = "typePret_id_TypePret")
     private TypePret typePret;
 
     public Pret() {

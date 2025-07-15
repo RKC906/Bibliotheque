@@ -1,37 +1,29 @@
 package biblio.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import java.util.Date;
-import biblio.entities.Admin;
 
 @Entity
 public class Abonnement {
-   @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idAbonnement") // Correspond au nom de colonne dans la table
-    private Integer idAbonnement; // Nom de la propriété Java
-    
+    private Integer idAbonnement;
+
     @Column(name = "dateInscription")
     private Date dateInscription;
-    
+
     @Column(name = "dateFinInscription")
     private Date dateFinInscription;
-    
-    @Column(name = "admin_id_Admin")
-    private Admin admin;
-    
+
     @ManyToOne
-    @JoinColumn(name = "adherant_idAdherant") // Correspond au nom de colonne FK dans la table
+    @JoinColumn(name = "admin_id_Admin")
+    private Admin admin;
+
+    @ManyToOne
+    @JoinColumn(name = "adherant_idAdherant")
     private Adherant adherant;
 
-    public Abonnement() {
-    }
+    public Abonnement() {}
 
     // Getters and Setters
     public Integer getIdAbonnement() {

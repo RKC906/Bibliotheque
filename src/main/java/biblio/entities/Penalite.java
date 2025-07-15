@@ -1,12 +1,7 @@
 package biblio.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import java.util.Date;
-import biblio.entities.Admin;
 
 @Entity
 public class Penalite {
@@ -17,13 +12,14 @@ public class Penalite {
     private Date dateFin;
 
     @ManyToOne
+    @JoinColumn(name = "adherant_idAdherant")
     private Adherant adherant;
 
     @ManyToOne
+    @JoinColumn(name = "admin_id_Admin")
     private Admin admin;
 
-    public Penalite() {
-    }
+    public Penalite() {}
 
     // Getters and Setters
     public Integer getIdPenalite() {

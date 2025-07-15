@@ -39,6 +39,7 @@ biblio/repository/adherant/AuteurRepository.class
 biblio/services/admin/AbonnementService.class
 biblio/entities/Reservation.class
 biblio/entities/Pret.class
+biblio/controller/admin/PretController.class
 biblio/entities/Livre.class
 biblio/entities/Admin.class
 biblio/repository/adherant/LivreRepository.class

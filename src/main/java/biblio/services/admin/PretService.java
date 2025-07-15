@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.Calendar;
+import java.util.List;
 
 @Service
 public class PretService {
@@ -50,5 +51,9 @@ public class PretService {
         int maxLivres = regle != null ? regle.getNbrPretLivre() : 0;
         long nbPrets = pretRepository.countByAdherantAndDateFinAfter(adherant, new Date());
         return nbPrets >= maxLivres;
+    }
+
+   public List<Pret> getActivePretsWithAdherants() {
+        return pretRepository.findAllActivePretsWithRelations();
     }
 }

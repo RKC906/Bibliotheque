@@ -17,7 +17,6 @@ SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
     <a href="${pageContext.request.contextPath}/admin/abonnement/nouveau">Ajouter un abonnement</a>
     <table border="1">
         <tr>
-            <th>ID Adhérent</th>
             <th>Nom</th>
             <th>Prénom</th>
             <th>Date Début</th>
@@ -26,7 +25,6 @@ SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         
         <% for (Abonnement abonnement : abonnements) { %>
         <tr>
-            <td><%= abonnement.getAdherant().getIdAdherant() %></td>
             <td><%= abonnement.getAdherant().getNom() %></td>
             <td><%= abonnement.getAdherant().getPrenom() %></td>
             <td><%= dateFormat.format(abonnement.getDateInscription()) %></td>
