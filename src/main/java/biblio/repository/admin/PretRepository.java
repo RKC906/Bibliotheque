@@ -15,4 +15,8 @@ public interface PretRepository extends JpaRepository<Pret, Integer> {
     
     @Query("SELECT p FROM Pret p JOIN FETCH p.adherant LEFT JOIN FETCH p.admin WHERE p.dateFin > CURRENT_DATE")
     List<Pret> findAllActivePretsWithRelations();
+
+    @Query("SELECT p FROM Pret p WHERE p.idPret NOT IN (SELECT r.pret.idPret FROM Retour r)")
+    List<Pret> findPretsNonRendus();
+
 }

@@ -37,5 +37,6 @@
             %>
         </tbody>
     </table>
+<a href="${pageContext.request.contextPath}/admin/accueil">Retour à l'accueil</a>
 </body>
 </html>

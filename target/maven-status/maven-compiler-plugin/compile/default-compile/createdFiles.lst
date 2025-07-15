@@ -12,6 +12,7 @@ biblio/entities/CategorieLivreAssociation.class
 biblio/entities/Auteur.class
 biblio/repository/adherant/TypePretRepository.class
 biblio/repository/adherant/CategorieLivreRepository.class
+biblio/services/admin/RetourService.class
 biblio/controller/admin/AdminController.class
 biblio/services/adherant/LivreService.class
 biblio/entities/Profile.class
@@ -39,6 +40,7 @@ biblio/repository/adherant/AuteurRepository.class
 biblio/services/admin/AbonnementService.class
 biblio/entities/Reservation.class
 biblio/entities/Pret.class
+biblio/repository/admin/RetourRepository.class
 biblio/controller/admin/PretController.class
 biblio/entities/Livre.class
 biblio/entities/Admin.class
@@ -48,5 +50,6 @@ biblio/services/admin/AdherantStatusService.class
 biblio/repository/adherant/CategorieLivreAssociationRepository.class
 biblio/controller/admin/ReservationAdminController.class
 biblio/services/admin/AdminService.class
+biblio/controller/admin/RetourController.class
 biblio/entities/Adherant.class
 biblio/repository/admin/AbonnementRepository.class

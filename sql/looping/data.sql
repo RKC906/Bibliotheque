@@ -72,3 +72,17 @@ INSERT INTO StatusAdherant(nom) VALUES
 INSERT INTO Adherant (dateNaissance, nom, prenom, id_Authentification, id_Profile,id_Status_Adherant) VALUES
   ('1990-01-01', 'Dupont', 'Alice', 1, 1,1),
   ('1985-05-15', 'Martin', 'Bob', 2, 2,1);
+
+-- Prêt de Alice Dupont pour un exemplaire de "Les Misérables"
+INSERT INTO Pret (dateDebut, dateFin, adherant_idAdherant, admin_id_Admin, exemplaireLivre_id_ExemplaireLivre, typePret_id_TypePret) VALUES
+('2025-07-01 10:00:00', '2025-07-16 10:00:00', 1, 1, 1, 2),
+
+-- Prêt de Bob Martin pour un exemplaire de "1984"
+('2025-07-05 14:00:00', '2025-07-25 14:00:00', 2, 2, 6, 2),
+
+-- Prêt de Alice pour un exemplaire de "Le Petit Prince"
+('2025-07-10 09:30:00', '2025-07-25 09:30:00', 1, 1, 12, 1),
+
+-- Prêt de Bob pour un exemplaire de "Harry Potter"
+('2025-07-12 11:00:00', '2025-07-27 11:00:00', 2, 1, 4, 2);
+

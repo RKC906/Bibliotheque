@@ -24,6 +24,12 @@ public class AdminController {
     @Autowired
     private biblio.services.admin.PenaliteService penaliteService;
 
+    @GetMapping("/accueil")
+    public String accueil() 
+    {
+        return "admin/loginAdmin";
+    }
+
     @GetMapping("/abonnement")
     public String listeAbonnements(Model model) {
         model.addAttribute("abonnements", abonnementService.getAllAbonnementsWithAdherant());

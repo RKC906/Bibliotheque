@@ -42,41 +42,41 @@ public class ReservationAdminService {
         Adherant adherant = reservation.getAdherant();
         
         if (adherant == null) {
-            return "Aucun adhérant associé à cette réservation.";
+            return "error : Aucun adhérant associé à cette réservation.";
         }
 
         // 1. Vérification pénalité
         if (pretService.isAdherantPenalise(adherant)) {
-            return "L'utilisateur est pénalisé.";
+            return "error : L'utilisateur est pénalisé.";
         }
 
         // 2. Vérification nombre de prêts
         if (pretService.hasReachedMaxPrets(adherant)) {
-            return "L'utilisateur a atteint le nombre maximal de livres empruntés.";
+            return "error : L'utilisateur a atteint le nombre maximal de livres empruntés.";
         }
 
         // 3. Vérification statut adhérent
         if (adherant.getStatusAdherant() == null || 
             !Objects.equals(adherant.getStatusAdherant().getIdStatusAdherant(), 1)) {
-            return "Le statut de l'adhérant n'est pas actif.";
+            return "error : Le statut de l'adhérant n'est pas actif.";
         }
 
         // 4. Vérification abonnement
         if (adherant.getDateFinAbonnement() == null || 
             adherant.getDateFinAbonnement().before(new Date())) {
-            return "L'abonnement de l'adhérant n'est plus valide.";
+            return "error : L'abonnement de l'adhérant n'est plus valide.";
         }
 
         // 5. Vérification exemplaire
         ExemplaireLivre exemplaire = reservation.getExemplaireLivre();
         if (exemplaire == null || 
             exemplaireLivreRepository.findById(exemplaire.getId_ExemplaireLivre()).isEmpty()) {
-            return "Exemplaire non disponible.";
+            return "error : Exemplaire non disponible.";
         }
 
         // 6. Vérification compatibilité profil/catégorie
         if (!isProfilCompatible(adherant, exemplaire)) {
-            return "Le profil de l'adhérant n'est pas compatible avec la catégorie du livre.";
+            return "error : Le profil de l'adhérant n'est pas compatible avec la catégorie du livre.";
         }
 
         // Accepter la réservation

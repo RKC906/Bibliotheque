@@ -56,4 +56,9 @@ public class PretService {
    public List<Pret> getActivePretsWithAdherants() {
         return pretRepository.findAllActivePretsWithRelations();
     }
+
+    public List<Pret> getPretsNonRendus() {
+    return pretRepository.findPretsNonRendus(); // méthode qu'on va créer dans le repository
+}
+
 }

@@ -1,6 +1,7 @@
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/adherant/AuthentificationRepository.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/Auteur.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/adherant/CategorieLivreRepository.java
+/home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/admin/RetourRepository.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/adherant/AdherantRepository.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/adherant/ReglePretRepository.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/adherant/ProfileCategorieLivreAssociationRepository.java
@@ -14,6 +15,7 @@
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/Profile.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/services/admin/AdherantStatusService.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/Admin.java
+/home/itu/java/github/Bibliotheque/src/main/java/biblio/controller/admin/RetourController.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/adherant/LivreRepository.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/services/admin/AdherantService.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/ReglePret.java
@@ -26,6 +28,7 @@
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/admin/AdminRepository.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/controller/adherant/ReservationController.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/entities/CategorieLivreAssociation.java
+/home/itu/java/github/Bibliotheque/src/main/java/biblio/services/admin/RetourService.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/controller/admin/PretController.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/adherant/TypePretRepository.java
 /home/itu/java/github/Bibliotheque/src/main/java/biblio/repository/adherant/ExemplaireLivreRepository.java
