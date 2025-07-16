@@ -1,6 +1,7 @@
 package biblio.controller.adherant;
 
 import biblio.entities.Adherant;
+import biblio.entities.Livre;
 import biblio.services.adherant.AuthentificationService;
 import biblio.services.adherant.LivreService;
 import jakarta.servlet.http.HttpSession;
@@ -10,7 +11,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class AdherantController {
@@ -56,5 +62,35 @@ public class AdherantController {
         model.addAttribute("auteurs", livreService.getAllAuteurs());
         model.addAttribute("categories", livreService.getAllCategories());
         return "adherant/homeAdherant";
+    }
+
+    @GetMapping("/adherant/livres/details/{id}")
+    public String showDetails(@PathVariable("id") Integer id, Model model, HttpSession session) {
+        if (session.getAttribute("adherantId") == null) {
+            return "redirect:/adherant/logAdherant";
+        }
+        model.addAttribute("livreId", id);
+        return "adherant/LivresDetails";
+    }
+
+    @GetMapping("/api/adherant/livres/details/{id}")
+    @ResponseBody
+    public ResponseEntity<?> getDetailsApi(@PathVariable("id") Integer id, HttpSession session) {
+        if (session.getAttribute("adherantId") == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+        try {
+            Livre livre = livreService.getLivreById(id);
+            if (livre == null) {
+                return ResponseEntity.notFound().build();
+            }
+            Map<String, Object> response = new HashMap<>();
+            response.put("livre", livre);
+            response.put("categories", livreService.getCategories(livre));
+            response.put("nbExemplaires", livreService.getNombreExemplaires(livre));
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
     }
 }

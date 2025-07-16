@@ -9,9 +9,9 @@
     <h2>Connexion Adhérant</h2>
     <form action="${pageContext.request.contextPath}/adherant/login" method="post">        
         <label for="email">Email :</label>
-        <input type="email" id="email" name="email" required value="alice@example.com"><br><br>
+        <input type="email" id="email" name="email" required value="amine@example.com"><br><br>
         <label for="motDePasse">Mot de passe :</label>
-        <input type="password" id="motDePasse" name="motDePasse" required value="azerty"><br><br>
+        <input type="password" id="motDePasse" name="motDePasse" required value="password1"><br><br>
         <button type="submit">Se connecter</button>
     </form>
     <% if (request.getAttribute("error") != null) { %>

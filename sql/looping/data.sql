@@ -1,50 +1,43 @@
 INSERT INTO Profile(nom) VALUES
 ('Etudiant'),
-('Professionnel'),
-('Professeur'),
-('Anonyme');
+('Enseignant'),
+('Professionel');
 -- Données pour la table Authentification
 INSERT INTO Authentification (email, motDePasse) VALUES
-  ('alice@example.com', 'azerty'),
-  ('bob@example.com', 'password123');
+('amine@example.com', 'password1'),
+('sarah@example.com', 'password2'),
+('youssef@example.com', 'password3'),
+('nadia@example.com', 'password4'),
+('karim@example.com', 'password5'),
+('salima@example.com', 'password6'),
+('rachid@example.com', 'password7'),
+('amina@example.com', 'password8');
 
 -- Données pour la table Adherant
 INSERT INTO Auteur(nom, prenom, date_naissance, nationalite, date_deces, biographie, photo) VALUES
 ('Hugo', 'Victor', '1802-02-26', 'Française', '1885-05-22', 'Grand écrivain romantique français', 'hugo.jpg'),
-('Rowling', 'J.K.', '1965-07-31', 'Britannique', NULL, 'Auteur de la saga Harry Potter', 'rowling.jpg'),
-('Orwell', 'George', '1903-06-25', 'Britannique', '1950-01-21', 'Auteur de 1984 et La Ferme des animaux', 'orwell.jpg'),
-('Christie', 'Agatha', '1890-09-15', 'Britannique', '1976-01-12', 'Reine du roman policier', 'christie.jpg'),
-('Saint-Exupéry', 'Antoine', '1900-06-29', 'Française', '1944-07-31', 'Auteur du Petit Prince', 'saintexupery.jpg');
+('Camus', 'Albert', '1913-11-07', 'Française', '1960-01-04', 'Philosophe et écrivain existentialiste', 'camus.jpg'),
+('Rowling', 'J.K.', '1965-07-31', 'Britannique', NULL, 'Auteur de la saga Harry Potter', 'rowling.jpg');
 
 INSERT INTO CategorieLivre(nom) VALUES
-('Roman'),
-('Science-Fiction'),
-('Policier'),
-('Fantasy'),
-('Classique'),
-('Jeunesse'),
-('Drame');
+('Philosophie'),
+('Littérature classique'),
+('Jeunesse / Fantastique');
 
 INSERT INTO Livre(titre, date_publication, nb_pages, langue, tags, auteur_id_Auteur) VALUES
-('Les Misérables', '1862-01-01', 1463, 'Français', 'classique,drame,historique', 1),
-('Harry Potter à l\'école des sorciers', '1997-06-26', 320, 'Anglais', 'fantasy,jeunesse,magie', 2),
-('1984', '1949-06-08', 328, 'Anglais', 'dystopie,science-fiction,politique', 3),
-('Le Meurtre de Roger Ackroyd', '1926-06-01', 256, 'Anglais', 'policier,enquête,mystère', 4),
-('Le Petit Prince', '1943-04-06', 96, 'Français', 'philosophie,jeunesse,poétique', 5);
+('Les Misérables', '1862-01-01', 1463, 'Français', '9782070409189', 1),
+('L''Étranger', '1942-01-01', 185, 'Français', '9782070360022', 2),
+('Harry Potter à l''école des sorciers', '1997-06-26', 320, 'Français', '9782070643026', 3);
 
-INSERT INTO ExemplaireLivre(livre_id_Livre 	) VALUES
-(1), (1), (1), -- 3 exemplaires des Misérables
-(2), (2),      -- 2 exemplaires de Harry Potter
-(3), (3), (3), (3), -- 4 exemplaires de 1984
-(4),            -- 1 exemplaire de Roger Ackroyd
-(5), (5), (5);  -- 3 exemplaires du Petit Prince
+INSERT INTO ExemplaireLivre(livre_id_Livre) VALUES
+(1), (1), (1), -- 3 exemplaires des Misérables (MIS001, MIS002, MIS003)
+(2), (2),      -- 2 exemplaires de L'Étranger (ETR001, ETR002)
+(3);           -- 1 exemplaire de Harry Potter (HAR001)
 
 INSERT INTO CategorieLivreAssociation(livre_id_Livre, categorieLivre_id_CategorieLivre) VALUES
-(1, 1), (1, 5), (1, 7),   -- Les Misérables: Roman, Classique, Drame
-(2, 4), (2, 6),            -- Harry Potter: Fantasy, Jeunesse
-(3, 2), (3, 1), (3, 7),    -- 1984: Science-Fiction, Roman, Drame
-(4, 3), (4, 1),            -- Roger Ackroyd: Policier, Roman
-(5, 1), (5, 5), (5, 6);    -- Le Petit Prince: Roman, Classique, Jeunesse
+(1, 2), -- Les Misérables: Littérature classique, Classique
+(2, 1),         -- L'Étranger: Philosophie
+(3, 3); -- Harry Potter: Jeunesse / Fantastique, Fantasy
 
 INSERT INTO Admin (email, motDePasse) VALUES
 ('admin1@biblio.fr', 'admin123'),
@@ -60,29 +53,46 @@ INSERT INTO TypePret(nom) VALUES
 ('A domicile');
 
 INSERT INTO ReglePret(nbrPretLivre,tempsPretLivre,profile_id_Profile) VALUES
-(3, 15, 1),  -- 3 livres pour 15 jours pour Etudiant
-(6, 20, 2), -- 6 livres pour 20 jours pour Professionnel
-(8, 30, 3),  -- 8 livres pour 30 jours pour Professeur
-(0, 0, 4);   -- Anonyme ne peut pas emprunter
+(2, 7, 1),  -- 2 livres pour 7 jours pour Etudiant
+(3, 9, 2), -- 3 livres pour 9 jours pour Enseignant
+(4, 12, 3);  -- 8 livres pour 30 jours pour Professionel
 
 INSERT INTO StatusAdherant(nom) VALUES
 ('Actif'),
 ('Inactif');
 
-INSERT INTO Adherant (dateNaissance, nom, prenom, id_Authentification, id_Profile,id_Status_Adherant) VALUES
-  ('1990-01-01', 'Dupont', 'Alice', 1, 1,1),
-  ('1985-05-15', 'Martin', 'Bob', 2, 2,1);
+INSERT INTO Adherant (dateNaissance, nom, prenom, id_Authentification, id_Profile, id_Status_Adherant) VALUES
+('1995-03-15', 'Bensaïd Amine','ETU001', 1, 1, 1),
+('1996-07-22', 'El Khattabi Sarah','ETU002', 2, 1, 2),
+('1994-11-30', 'Moujahid Youssef','ETU003', 3, 1, 1),
+('1980-05-10', 'Benali Nadia','ENS001', 4, 2, 1),
+('1978-09-18', 'Haddadi Karim','ENS002', 5, 2, 2),
+('1982-12-05', 'Touhami Salima','ENS003', 6, 2, 1),
+('1975-04-25', 'El Mansouri Rachid','PROF001', 7, 3, 1),
+('1976-08-12', 'Zerouali Amina','PROF002', 8, 3, 2);
 
--- Prêt de Alice Dupont pour un exemplaire de "Les Misérables"
-INSERT INTO Pret (dateDebut, dateFin, adherant_idAdherant, admin_id_Admin, exemplaireLivre_id_ExemplaireLivre, typePret_id_TypePret) VALUES
-('2025-07-01 10:00:00', '2025-07-16 10:00:00', 1, 1, 1, 2),
+INSERT INTO Abonnement (dateInscription, dateFinInscription, adherant_idAdherant, admin_id_Admin) VALUES
+-- ETU001 - Amine Bensaïd (adhérent_id 1)
+('2025-02-01 00:00:00', '2025-07-24 00:00:00', 1, 1),
 
--- Prêt de Bob Martin pour un exemplaire de "1984"
-('2025-07-05 14:00:00', '2025-07-25 14:00:00', 2, 2, 6, 2),
+-- ETU002 - Sarah El Khattabi (adhérent_id 2)
+('2025-02-01 00:00:00', '2025-07-01 00:00:00', 2, 1),
 
--- Prêt de Alice pour un exemplaire de "Le Petit Prince"
-('2025-07-10 09:30:00', '2025-07-25 09:30:00', 1, 1, 12, 1),
+-- ETU003 - Youssef Moujahid (adhérent_id 3)
+('2025-04-01 00:00:00', '2025-12-01 00:00:00', 3, 1),
 
--- Prêt de Bob pour un exemplaire de "Harry Potter"
-('2025-07-12 11:00:00', '2025-07-27 11:00:00', 2, 1, 4, 2);
+-- ENS001 - Nadia Benali (adhérent_id 4)
+('2025-07-01 00:00:00', '2026-07-01 00:00:00', 4, 1),
+
+-- ENS002 - Karim Haddadi (adhérent_id 5)
+('2025-08-01 00:00:00', '2026-05-01 00:00:00', 5, 1),
+
+-- ENS003 - Salima Touhami (adhérent_id 6)
+('2025-07-01 00:00:00', '2026-06-01 00:00:00', 6, 1),
+
+-- PROF001 - Rachid El Mansouri (adhérent_id 7)
+('2025-06-01 00:00:00', '2025-12-01 00:00:00', 7, 1),
+
+-- PROF002 - Amina Zerouali (adhérent_id 8)
+('2024-10-01 00:00:00', '2025-06-01 00:00:00', 8, 1);
 

@@ -48,6 +48,13 @@
             <version>5.0.0</version> <!-- ou autre version compatible avec Spring -->
             <scope>provided</scope>
         </dependency>
+<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>javax.servlet-api</artifactId>
+    <version>4.0.1</version> <!-- Vérifiez la dernière version disponible -->
+    <scope>provided</scope>
+</dependency>
+
 
     </dependencies>
 

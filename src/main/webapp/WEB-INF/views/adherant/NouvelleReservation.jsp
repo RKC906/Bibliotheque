@@ -18,7 +18,7 @@
                 if (exemplaires != null) {
                     for (ExemplaireLivre ex : exemplaires) {
             %>
-                <option value="<%= ex.getId_ExemplaireLivre() %>">Exemplaire #<%= ex.getId_ExemplaireLivre() %></option>
+                <option value="<%= ex.getId_ExemplaireLivre() %>">MIS00<%= ex.getId_ExemplaireLivre() %></option>
             <%      }
                 }
             %>

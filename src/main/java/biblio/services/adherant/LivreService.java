@@ -92,8 +92,10 @@ public class LivreService {
         }
         return details;
     }
-
-    // ...existing code...
+    
+public Livre getLivreById(Integer id) {
+    return livreRepository.findById(id).orElse(null);
+}
 
     public long getNombreExemplaires(Livre livre) {
         return exemplaireLivreRepository.countByLivre(livre);

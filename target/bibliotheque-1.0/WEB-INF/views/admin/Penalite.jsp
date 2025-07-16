@@ -5,10 +5,10 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Liste des pénalités</title>
+    <title>Liste des pénalisés</title>
 </head>
 <body>
-    <h2>Liste des pénalités</h2>
+    <h2>Liste des pénalisés</h2>
     <a href="${pageContext.request.contextPath}/admin/penalite/nouveau">Ajouter une pénalité</a>
     <table border="1">
         <thead>
